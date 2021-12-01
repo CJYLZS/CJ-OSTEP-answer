@@ -1,0 +1,75 @@
+ARG addresses -1
+ARG addressfile test.txt
+ARG numaddrs 10
+ARG policy FIFO
+ARG clockbits 2
+ARG cachesize 3
+ARG maxpage 10
+ARG seed 0
+ARG notrace False
+
+Solving...
+
+Access: 4  MISS FirstIn ->          [4] <- Lastin  Replaced:- [Hits:0 Misses:1]
+Access: 3  MISS FirstIn ->       [4, 3] <- Lastin  Replaced:- [Hits:0 Misses:2]
+Access: 9  MISS FirstIn ->    [4, 3, 9] <- Lastin  Replaced:- [Hits:0 Misses:3]
+Access: 3  HIT  FirstIn ->    [4, 3, 9] <- Lastin  Replaced:- [Hits:1 Misses:3]
+Access: 2  MISS FirstIn ->    [3, 9, 2] <- Lastin  Replaced:4 [Hits:1 Misses:4]
+Access: 2  HIT  FirstIn ->    [3, 9, 2] <- Lastin  Replaced:- [Hits:2 Misses:4]
+Access: 3  HIT  FirstIn ->    [3, 9, 2] <- Lastin  Replaced:- [Hits:3 Misses:4]
+Access: 5  MISS FirstIn ->    [9, 2, 5] <- Lastin  Replaced:3 [Hits:3 Misses:5]
+Access: 9  HIT  FirstIn ->    [9, 2, 5] <- Lastin  Replaced:- [Hits:4 Misses:5]
+Access: 2  HIT  FirstIn ->    [9, 2, 5] <- Lastin  Replaced:- [Hits:5 Misses:5]
+
+FINALSTATS hits 5   misses 5   hitrate 50.00
+
+ARG addresses -1
+ARG addressfile test.txt
+ARG numaddrs 10
+ARG policy LRU
+ARG clockbits 2
+ARG cachesize 3
+ARG maxpage 10
+ARG seed 0
+ARG notrace False
+
+Solving...
+
+Access: 4  MISS LRU ->          [4] <- MRU Replaced:- [Hits:0 Misses:1]
+Access: 3  MISS LRU ->       [4, 3] <- MRU Replaced:- [Hits:0 Misses:2]
+Access: 9  MISS LRU ->    [4, 3, 9] <- MRU Replaced:- [Hits:0 Misses:3]
+Access: 3  HIT  LRU ->    [4, 9, 3] <- MRU Replaced:- [Hits:1 Misses:3]
+Access: 2  MISS LRU ->    [9, 3, 2] <- MRU Replaced:4 [Hits:1 Misses:4]
+Access: 2  HIT  LRU ->    [9, 3, 2] <- MRU Replaced:- [Hits:2 Misses:4]
+Access: 3  HIT  LRU ->    [9, 2, 3] <- MRU Replaced:- [Hits:3 Misses:4]
+Access: 5  MISS LRU ->    [2, 3, 5] <- MRU Replaced:9 [Hits:3 Misses:5]
+Access: 9  MISS LRU ->    [3, 5, 9] <- MRU Replaced:2 [Hits:3 Misses:6]
+Access: 2  MISS LRU ->    [5, 9, 2] <- MRU Replaced:3 [Hits:3 Misses:7]
+
+FINALSTATS hits 3   misses 7   hitrate 30.00
+
+ARG addresses -1
+ARG addressfile test.txt
+ARG numaddrs 10
+ARG policy OPT
+ARG clockbits 2
+ARG cachesize 3
+ARG maxpage 10
+ARG seed 0
+ARG notrace False
+
+Solving...
+
+Access: 4  MISS Left  ->          [4] <- Right Replaced:- [Hits:0 Misses:1]
+Access: 3  MISS Left  ->       [4, 3] <- Right Replaced:- [Hits:0 Misses:2]
+Access: 9  MISS Left  ->    [4, 3, 9] <- Right Replaced:- [Hits:0 Misses:3]
+Access: 3  HIT  Left  ->    [4, 3, 9] <- Right Replaced:- [Hits:1 Misses:3]
+Access: 2  MISS Left  ->    [3, 9, 2] <- Right Replaced:4 [Hits:1 Misses:4]
+Access: 2  HIT  Left  ->    [3, 9, 2] <- Right Replaced:- [Hits:2 Misses:4]
+Access: 3  HIT  Left  ->    [3, 9, 2] <- Right Replaced:- [Hits:3 Misses:4]
+Access: 5  MISS Left  ->    [9, 2, 5] <- Right Replaced:3 [Hits:3 Misses:5]
+Access: 9  HIT  Left  ->    [9, 2, 5] <- Right Replaced:- [Hits:4 Misses:5]
+Access: 2  HIT  Left  ->    [9, 2, 5] <- Right Replaced:- [Hits:5 Misses:5]
+
+FINALSTATS hits 5   misses 5   hitrate 50.00
+
